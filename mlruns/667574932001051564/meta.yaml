@@ -1,8 +1,0 @@
-artifact_location: file:///Users/sebascorzop/Downloads/mlflow-deploy/mlruns/667574932001051564
-creation_time: 1777306412528
-experiment_id: '667574932001051564'
-last_update_time: 1777306412528
-lifecycle_stage: active
-name: CI-CD-Lab2
-trace_location: null
-workspace: default
