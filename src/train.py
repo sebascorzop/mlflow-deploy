@@ -81,7 +81,6 @@ def main():
         mlflow.sklearn.log_model(
             sk_model=model,
             artifact_path="model",
-            registered_model_name="diabetes-regression-model"
         )
         
         print(f"   ✅ Run ID: {run.info.run_id}")
