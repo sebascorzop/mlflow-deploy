@@ -1,0 +1,66 @@
+name: CI/CD para ML con MLflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:  # Permite ejecución manual
+
+jobs:
+  ml_pipeline:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v3
+      
+      - name: 🐍 Configurar Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      
+      - name: 📦 Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: 🏋️ Entrenar modelo
+        run: make train
+      
+      - name: ✅ Validar modelo
+        run: make validate
+      
+      - name: 📤 Subir modelo validado como artefacto
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: modelo-validado
+          path: model.pkl
+          retention-days: 30
+      
+      - name: 📤 Subir logs de MLflow
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mlflow-logs
+          path: mlruns/
+          retention-days: 7
+      
+      - name: 📊 Resumen de ejecución
+        if: always()
+        run: |
+          echo "## 📊 Resumen del Pipeline" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f model.pkl ]; then
+            echo "✅ Modelo entrenado: \`model.pkl\`" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Modelo no encontrado" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -d mlruns ]; then
+            echo "✅ Logs de MLflow generados" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ No se encontraron logs de MLflow" >> $GITHUB_STEP_SUMMARY
+          fi

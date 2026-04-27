@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/sebascorzop/Downloads/mlflow-deploy/mlruns/667574932001051564/797c22be98484f118129328a787ec1c3/artifacts
+end_time: 1777306418560
+entry_point_name: ''
+experiment_id: '667574932001051564'
+lifecycle_stage: active
+run_id: 797c22be98484f118129328a787ec1c3
+run_name: nervous-frog-304
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777306416622
+status: 3
+tags: []
+user_id: sebascorzop

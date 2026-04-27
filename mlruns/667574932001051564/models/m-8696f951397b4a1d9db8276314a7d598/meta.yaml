@@ -1,0 +1,10 @@
+artifact_location: file:///Users/sebascorzop/Downloads/mlflow-deploy/mlruns/667574932001051564/models/m-8696f951397b4a1d9db8276314a7d598/artifacts
+creation_timestamp: 1777306412660
+experiment_id: '667574932001051564'
+last_updated_timestamp: 1777306414942
+model_id: m-8696f951397b4a1d9db8276314a7d598
+model_type: null
+name: model
+source_run_id: 1f6bed60fd43497e890c9a8ce815e5f4
+status: 2
+status_message: null

@@ -1,0 +1,16 @@
+creation_timestamp: 1777306418554
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1777306418554
+model_id: m-9a8afe3e7a7848be8be01595a2184375
+name: diabetes-regression-model
+run_id: 797c22be98484f118129328a787ec1c3
+run_link: null
+source: models:/m-9a8afe3e7a7848be8be01595a2184375
+status: READY
+status_message: null
+storage_location: file:///Users/sebascorzop/Downloads/mlflow-deploy/mlruns/667574932001051564/models/m-9a8afe3e7a7848be8be01595a2184375/artifacts
+user_id: null
+version: 2
+workspace: default
